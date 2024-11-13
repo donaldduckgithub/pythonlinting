@@ -6,7 +6,7 @@ A preview of the game:
 
 This is my first game:
 
-- Its main purpose is to show how we configure Poetry and the `pyproject.toml` file for better dependency management, and adds a formatter and a linter as well as a CI setup to check all this.
+- Its main purpose is to show how we configure Poetry and the `pyproject.toml` file for better dependency management, and add a formatter and a linter as well as a CI setup to check all this.
 - But of course the game is playable. You can walk around in a 3D world :).
 
 ## Installing dependencies
@@ -17,7 +17,6 @@ Using [Poetry](https://python-poetry.org/):
 poetry install
 ```
 
-This will also build the Cython extensions.
 If you ever need to rebuild them, you can do:
 
 ```console
