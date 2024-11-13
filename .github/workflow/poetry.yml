@@ -1,0 +1,26 @@
+name: main
+
+on: push
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    env:
+      POETRY_VIRTUALENVS_IN_PROJECT: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: abatilo/actions-poetry@v2
+      - name: Install dependencies and build Cython extension
+        run: poetry install --no-root
+      - name: Rebuild the project
+        run: poetry build
+      - name: Cache venv created by poetry (configured to be in '.venv')
+        uses: actions/cache@v3
+        with:
+          path: ./.venv
+          key: venv-${{ runner.os }}-${{ hashFiles('poetry.lock') }}
+      - name: Run pyright
+        run: poetry run pyright

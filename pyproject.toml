@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "main"
+version = "0.1.0"
+description = "My first game"
+authors = [
+"Arvednet",
+"Someone",
+]
+
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10.12"
+ursina = "^7.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.388"
+ruff = "^0.7.3"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+reportWildcardImportFromLibrary = false
+ignore = ["assets/test.py"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+ignore = ["E402", "F405", "F403"]
